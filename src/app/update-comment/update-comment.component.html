@@ -1,0 +1,14 @@
+<div class="container mt-3">
+    <h2 class="fw-bold">Hozzászólás módósítása</h2>
+    <hr>
+    <p>Meglévő hozzászólás modósítása...</p>
+    <form [formGroup]="updateForm" (ngSubmit) ="submit()">
+        <div class="form-group my-2">
+            <label>Hozzászólás</label>
+            <textarea [(ngModel)]="comment.body" formControlName="body" class="form-control" placeholder="Hozzászólás" rows="5"></textarea>
+            <small class="form-text text-muted">Adja meg a hozzászólást</small>
+          </div>
+        <button type="submit" class="btn btn-primary mt-2">Mentés</button>
+      </form>
+   
+</div>

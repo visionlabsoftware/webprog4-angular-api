@@ -1,0 +1,44 @@
+<div class="container mt-3">
+    <h1 class="fw-bold">Hozzászólások</h1>
+    <hr>
+
+    <div *ngIf="isLoading">
+      <app-loading></app-loading>
+    </div>
+    <div *ngIf="isLoading == false">
+         <div class="d-grid gap-2 d-md-flex justify-content-md-start my-2">
+          <button class="btn btn-primary mr-1" [routerLink]="['/comments/add']" type="button">Hozzáadás</button>
+        </div>
+    </div>
+    <hr>
+    <ng-container *ngIf="data != undefined">
+        <div *ngFor="let item of data.comments">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <p class="card-text">{{ item.body }}</p>
+                    <i class="bi bi-hand-thumbs-up">{{ item.likes }}</i>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-warning" (click)="update(item)" type="button">Modósítás</button>
+                        <button class="btn btn-danger" (click)="delete(item)" type="button">Törlés</button>
+                    </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <span class="h5">Aktuális oldal: {{ currentPage }} / {{ totalPages }}</span>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <span class="h6">Összes rekord: {{ $any(data).total }}</span>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end my-2">
+              <select style="width: 80px;" class="form-select rounded mr-2" (change)="onValueChange($event)">
+                <option *ngFor="let limit of limits" [value]="limit">{{ limit }}</option>
+              </select>
+              <button class="btn btn-primary mr-1" [disabled]="currentPage === 1" (click)="previousPage()" type="button">❮ Elöző</button>
+              <button class="btn btn-primary" [disabled]="currentPage === totalPages" (click)="nextPage()" type="button">Következő ❯</button>
+            </div>
+          </div>
+    </ng-container>
+</div>

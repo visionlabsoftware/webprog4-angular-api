@@ -1,0 +1,18 @@
+<div class="container mt-3">
+    <h2 class="fw-bold">Új bejegyzés</h2>
+    <hr>
+    <p>Új bejegyzés létrehozása...</p>
+    <form [formGroup]="addForm" (ngSubmit) ="submit()">
+        <div class="form-group my-2">
+          <label>Cím</label>
+          <input formControlName="title" class="form-control" placeholder="Bejegyzés címe">
+          <small class="form-text text-muted">Adja meg a bejegyzés címét</small>
+        </div>
+        <div class="form-group my-2">
+            <label>Szövegtörzs</label>
+            <textarea  formControlName="body" class="form-control" placeholder="Bejegyzés szövegtörzse" rows="5"></textarea>
+            <small class="form-text text-muted">Adja meg a bejegyzés szövegtörzsét</small>
+          </div>
+        <button type="submit" class="btn btn-primary mt-2">Mentés</button>
+      </form>
+</div>

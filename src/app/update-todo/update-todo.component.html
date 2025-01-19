@@ -1,0 +1,18 @@
+<div class="container mt-3">
+    <h2 class="fw-bold">Tennivaló modósítása</h2>
+    <hr>
+    <p>Meglévő tennivaló modósítása...</p>
+    <form [formGroup]="updateForm" (ngSubmit) ="submit()">
+        <div class="form-group my-2">
+          <label>Tennivaló</label>
+          <textarea [(ngModel)]="todo.todo" formControlName="todo" class="form-control" placeholder="Tennivaló" rows="5"></textarea>
+          <small class="form-text text-muted">Adja meg a hozzászólást</small>
+          <select [(ngModel)]="todo.completed" formControlName="completed" class="form-select my-2">
+            <option [value]="true">Elkészült</option>
+            <option [value]="false">Nem készült el</option>
+        </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Mentés</button>
+      </form>
+   
+</div>

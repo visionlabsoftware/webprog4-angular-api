@@ -1,0 +1,14 @@
+<div class="container mt-3">
+    <h2 class="fw-bold">Új tennivaló</h2>
+    <hr>
+    <p>Új hozzászólás létrehozása...</p>
+    <form [formGroup]="addForm" (ngSubmit) ="submit()">
+        <div class="form-group my-2">
+          <label>Tennivaló</label>
+          <textarea  formControlName="todo" class="form-control" placeholder="Tennivaló" rows="5"></textarea>
+          <small class="form-text text-muted">Adja meg a hozzászólást</small>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Mentés</button>
+      </form>
+   
+</div>
